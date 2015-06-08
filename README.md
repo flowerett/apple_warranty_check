@@ -1,8 +1,8 @@
 # AppleWarrantyCheck
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/apple_warranty_check`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Code Climate](https://codeclimate.com/github/flowerett/apple_warranty_check/badges/gpa.svg)](https://codeclimate.com/github/flowerett/apple_warranty_check)
 
-TODO: Delete this and the text above, and describe your gem
+Simple tool to get warranty info for Apple devices by it's IMEI.
 
 ## Installation
 
@@ -22,7 +22,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'apple_warranty_check'
+AppleWarrantyCheck::Process.new('IMEI').run
+```
 
 ## Development
 

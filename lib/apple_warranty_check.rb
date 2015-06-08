@@ -5,9 +5,9 @@ module AppleWarrantyCheck
   class Process
     CHECK_URL = 'https://selfsolve.apple.com/wcResults.do'.freeze
 
-    PRODUCT_INFO_REGEXP = /warrantyPage.warrantycheck.displayProductInfo\((.*)\);/
-    PH_SUPPORT_INFO_REGEXP = /warrantyPage.warrantycheck.displayPHSupportInfo\((.*)\);/
-    HW_SUPPORT_INFO_REGEXP = /warrantyPage.warrantycheck.displayHWSupportInfo\((.*)\);/
+    PRODUCT_INFO_REGEXP = /warrantyPage.warrantycheck.displayProductInfo\((.*)\);/.freeze
+    PH_SUPPORT_INFO_REGEXP = /warrantyPage.warrantycheck.displayPHSupportInfo\((.*)\);/.freeze
+    HW_SUPPORT_INFO_REGEXP = /warrantyPage.warrantycheck.displayHWSupportInfo\((.*)\);/.freeze
 
     ERR_RESP_REGEXP = /var errorMsg = '(.*)';/
 
