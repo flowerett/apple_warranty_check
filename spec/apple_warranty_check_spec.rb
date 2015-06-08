@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe AppleWarrantyCheck do
   it 'has a version number' do
-    expect(AppleWarrantyCheck::VERSION).to eq '0.0.1'
+    expect(AppleWarrantyCheck::VERSION).to eq '0.0.2'
   end
 
   let(:valid_warranty_html)  { File.open('spec/files/valid_warranty_resp.html').read }

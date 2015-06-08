@@ -17,6 +17,8 @@ module AppleWarrantyCheck
 
     ERR_RESP_REGEXP = /var errorMsg = '(.*)';/
 
+    NOT_REGISTERED_REGEXP = /window.location.href =(.*);/.freeze
+
     PRODUCT_INFO_KEYS = %i(prodImgUrl prodDesc isIMEINum APIMEINum isProdId prodId sn).freeze
     PH_SUPPORT_INFO_KEYS = %i(hasPhoneSuppCov phoneSuppSubHeader phoneSuppCovTxt phoneSuppLink).freeze
     HW_SUPPORT_INFO_KEYS = %i(hasHWSuppCov HWRepairSubHead HWSuppCovTxt HWSuppLnk hasCLMessageCode).freeze
@@ -32,15 +34,15 @@ module AppleWarrantyCheck
     end
 
     def parse_body(html)
-      if ERR_RESP_REGEXP.match(html).nil?
-        {
-          product_info: get_product_info(html),
-          phone_support: get_phone_support_info(html),
-          hw_support: get_hw_support_info(html)
-        }
-      else
-        { error: ERR_RESP_REGEXP.match(html)[1] }
-      end
+      return error_response(html) unless ERR_RESP_REGEXP.match(html).nil?
+
+      return not_registered unless NOT_REGISTERED_REGEXP.match(html).nil?
+
+      {
+        product_info: get_product_info(html),
+        phone_support: get_phone_support_info(html),
+        hw_support: get_hw_support_info(html)
+      }
     end
 
     def get_phone_support_info(html)
@@ -77,6 +79,15 @@ module AppleWarrantyCheck
           support_status: status_regexp.match(match_data[2])[1],
           expiration_date: (EXP_DATE.match(match_data[3])[1] rescue nil)
         )
+    end
+
+    def error_response(html)
+      { error: ERR_RESP_REGEXP.match(html)[1] }
+    end
+
+    # TODO follow redirect to get live apple message
+    def not_registered
+      { error: "Please validate your product's purchase date. Apple is unable to provide information about your service coverage." }
     end
   end
 end
