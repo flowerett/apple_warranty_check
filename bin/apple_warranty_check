@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
+
+require 'apple_warranty_check'
+require 'json'
+
+args = ARGV.dup
+ARGV.clear
+
+data = AppleWarrantyCheck::Process.new(args).run
+
+puts JSON.pretty_generate data
