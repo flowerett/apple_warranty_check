@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/flowerett/apple_warranty_check.svg?branch=master)](https://travis-ci.org/flowerett/apple_warranty_check)
 [![Code Climate](https://codeclimate.com/github/flowerett/apple_warranty_check/badges/gpa.svg)](https://codeclimate.com/github/flowerett/apple_warranty_check)
+[![Dependency Status](https://gemnasium.com/flowerett/apple_warranty_check.svg)](https://gemnasium.com/flowerett/apple_warranty_check)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/flowerett/apple_warranty_check/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 Simple tool to get warranty info for Apple devices by it's IMEI.
 
