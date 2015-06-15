@@ -27,10 +27,11 @@ module AppleWarrantyCheck
 
     def initialize(imei=nil)
       @imei = imei
-      @response = get_response
     end
 
     def run
+      @response = get_response
+
       case response
       when Net::HTTPSuccess
         parse_body response.body
