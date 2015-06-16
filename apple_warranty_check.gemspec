@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["nick.chernyshev@gmail.com"]
 
   spec.summary       = 'Check Apple warranty by IMEI'
-  spec.description   = 'Tool to parse warranty info for Apple devices from official site.'
+  spec.description   = "Simple tool to get warranty info for Apple devices by it's IMEI from official site."
   spec.homepage      = "https://github.com/flowerett/apple_warranty_check"
   spec.license       = "MIT"
 

@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/flowerett/apple_warranty_check/badges/gpa.svg)](https://codeclimate.com/github/flowerett/apple_warranty_check)
 [![Dependency Status](https://gemnasium.com/flowerett/apple_warranty_check.svg)](https://gemnasium.com/flowerett/apple_warranty_check)
 
-Simple tool to get warranty info for Apple devices by it's IMEI.
+Simple tool to get warranty info for Apple devices by it's IMEI from official site.
 
 ## Installation
 
