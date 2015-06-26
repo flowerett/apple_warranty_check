@@ -10,5 +10,5 @@ require "apple_warranty_check"
 # require "pry"
 # Pry.start
 
-require "irb"
-IRB.start
+require "pry"
+Pry.start

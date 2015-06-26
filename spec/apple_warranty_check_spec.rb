@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe AppleWarrantyCheck do
   it 'has a version number' do
-    expect(AppleWarrantyCheck::VERSION).to eq '0.0.4'
+    expect(AppleWarrantyCheck::VERSION).to eq '0.0.5'
   end
 
   let(:valid_warranty_html)  { File.open('spec/files/valid_warranty_resp.html').read }
@@ -11,6 +11,23 @@ describe AppleWarrantyCheck do
 
   let(:pr) { AppleWarrantyCheck::Process.new() }
 
+  describe '#run' do
+    it 'returns active result from apple site' do
+      info = AppleWarrantyCheck::Process.new('013977000323877').run
+
+      expect(info[:product_info][:APIMEINum]).to eq "013977000323877"
+      expect(info[:hw_support][:support_status]).to eq 'Active'
+      expect(info[:hw_support][:expiration_date]).to eq "August 10, 2016"
+    end
+
+    it 'returns expired result from apple site' do
+      info = AppleWarrantyCheck::Process.new('013896000639712').run
+
+      expect(info[:product_info][:APIMEINum]).to eq "013896000639712"
+      expect(info[:hw_support][:support_status]).to eq 'Expired'
+      expect(info[:hw_support][:expiration_date]).to be_nil
+    end
+  end
 
   describe '#parse_body' do
     it 'returns error message from invalid html response' do
