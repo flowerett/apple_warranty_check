@@ -8,6 +8,12 @@
 
 Simple tool to get warranty info for Apple devices by it's IMEI from official site.
 
+:exclamation: Apple status check page changed, gem doesn't work :exclamation:
+
+#TODO
+ - move check to https://checkcoverage.apple.com/
+ - bypass captcha
+
 ## Installation
 
 Add this line to your application's Gemfile:
